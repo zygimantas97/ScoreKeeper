@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">ScoreKeeper</string>
-    <string name="SignInButtonText">Sign In</string>
-    <string name="SignUpButtonText">Sign Up</string>
+    <string name="signInButtonText">Sign In</string>
+    <string name="signUpButtonText">Sign Up</string>
+    <string name="firstNameTextViewText">First Name</string>
+    <string name="lastNameTextViewText">Last Name</string>
+    <string name="emailTextViewText">Email</string>
+    <string name="passwordTextViewText">Password</string>
+    <string name="verifyPasswordTextViewText">Verify password</string>
 </resources>
