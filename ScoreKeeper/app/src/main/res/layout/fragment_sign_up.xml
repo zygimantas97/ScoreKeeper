@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".MainActivity">
+
 
     <LinearLayout
         android:id="@+id/firstNameLinearLayout"
@@ -17,18 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/firstNameTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/firstNameTextViewText" />
+
 
         <EditText
             android:id="@+id/firstNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="First Name"
             android:ems="10"
             android:inputType="textPersonName" />
     </LinearLayout>
@@ -44,18 +41,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstNameLinearLayout">
 
-        <TextView
-            android:id="@+id/lastNameTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/lastNameTextViewText" />
+
 
         <EditText
             android:id="@+id/lastNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="Last Name"
             android:ems="10"
             android:inputType="textPersonName" />
     </LinearLayout>
@@ -71,18 +64,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastNameLinearLayout">
 
-        <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/emailTextViewText" />
+
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/emailSEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="email@email.com"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
@@ -99,18 +88,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLinearLayout">
 
-        <TextView
-            android:id="@+id/passwordTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/passwordTextViewText" />
+
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/passwordSEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="password"
             android:ems="10"
             android:inputType="textPassword" />
 
@@ -128,12 +113,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordLinearLayout">
 
-        <TextView
-            android:id="@+id/verifyPasswordTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/verifyPasswordTextViewText" />
 
         <EditText
             android:id="@+id/verifyPasswordEditText"
@@ -141,20 +120,53 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Verify password"
             android:inputType="textPassword" />
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/signSUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:onClick="onButtonClickSignUp"
+        android:layout_marginTop="152dp"
         android:text="@string/signUpButtonText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
+
+    <TextView
+        android:id="@+id/emailValidation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordValidation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
+
+    <TextView
+        android:id="@+id/passwordValidation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordVerification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
+
+    <TextView
+        android:id="@+id/passwordVerification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/signSUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

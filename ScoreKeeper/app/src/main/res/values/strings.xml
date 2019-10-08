@@ -7,4 +7,10 @@
     <string name="emailTextViewText">Email</string>
     <string name="passwordTextViewText">Password</string>
     <string name="verifyPasswordTextViewText">Verify password</string>
+    <string name="log_out">Log Out</string>
+    <string name="hello_blank_fragment">Welcome </string>
+    <string name="pref_file">com.abc.preference_file</string>
+    <string name="pref_login_status">com.abs.preference_login_status</string>
+    <string name="pref_user_name">com.abs.preference_user_name</string>
+
 </resources>
