@@ -3,6 +3,7 @@ package com.example.scorekeeper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -45,9 +46,20 @@ public class WelcomeFragment extends Fragment {
                 logoutListener.performLogout();
             }
         });
+        Button MyGames = view.findViewById(R.id.gameListButton);
+        MyGames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getActivity(), MenuActivity.class);
+                startActivity(intent);
+                ((Activity)getActivity()).overridePendingTransition(0, 0);
+
+            }
+        });
 
         return view;
     }
+
 
     @Override
     public void onAttach(Context context) {

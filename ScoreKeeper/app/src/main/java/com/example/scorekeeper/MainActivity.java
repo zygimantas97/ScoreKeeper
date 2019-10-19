@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
 
     @Override
     public void performSignup() {
-getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SignUpFragment()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SignUpFragment()).addToBackStack(null).commit();
     }
 
     @Override
@@ -49,4 +49,5 @@ getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginFragment()).commit();
 
     }
+
 }

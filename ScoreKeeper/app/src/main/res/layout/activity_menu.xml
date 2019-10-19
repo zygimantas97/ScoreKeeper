@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
+    <LinearLayout
+        android:id="@+id/gameListLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="206dp"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
