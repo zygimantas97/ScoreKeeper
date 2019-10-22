@@ -21,13 +21,18 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
                 return;
             }
             if (prefConfig.readLoginStatus()){
+//                Intent intent = new Intent(this, TempActivity.class);
+//                startActivity(intent);
                 getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new WelcomeFragment()).commit();
             }
+
             else{
                 getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LoginFragment()).commit();
             }
         }
     }
+
+
 
 
     @Override
@@ -37,8 +42,10 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
 
     @Override
     public void performLogin(String email) {
-        prefConfig.writeName(email);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WelcomeFragment()).commit();
+       // prefConfig.writeName(email);
+        Intent intent = new Intent(this, TempActivity.class);
+        startActivity(intent);
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WelcomeFragment()).commit();
 
     }
 
