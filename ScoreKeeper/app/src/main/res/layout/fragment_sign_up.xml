@@ -7,166 +7,94 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
-        android:id="@+id/firstNameLinearLayout"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="200dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-
-
-        <EditText
-            android:id="@+id/firstNameEditText"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="First Name"
-            android:ems="10"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:id="@+id/lastNameLinearLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameLinearLayout">
+            <LinearLayout
+                android:id="@+id/firstNameLinearLayout"
+                style="@style/AppTheme"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/verifyPasswordLinearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <EditText
+                    android:id="@+id/emailSEditText"
+                    style="@style/editTextStyle"
+                    android:hint="email@email.com"
+                    android:inputType="textEmailAddress" />
 
+                <EditText
+                    android:id="@+id/lastNameEditText"
+                    style="@style/editTextStyle"
+                    android:hint="Last Name"
+                    android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/lastNameEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Last Name"
-            android:ems="10"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/firstNameEditText"
+                    style="@style/editTextStyle"
+                    android:hint="First Name"
+                    android:inputType="textPersonName" />
 
-    <LinearLayout
-        android:id="@+id/emailLinearLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameLinearLayout">
+                <EditText
+                    android:id="@+id/passwordSEditText"
+                    style="@style/editTextStyle"
+                    android:hint="password"
+                    android:inputType="textPassword" />
+                <EditText
+                    android:id="@+id/verifyPasswordEditText"
+                    style="@style/editTextStyle"
+                    android:hint="Verify password"
+                    android:inputType="textPassword" />
 
-
-
-        <EditText
-            android:id="@+id/emailSEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="email@email.com"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/passwordLinearLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLinearLayout">
+            </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/verifyPasswordLinearLayout"
+                style="@style/AppTheme"
+                android:orientation="vertical"
 
-        <EditText
-            android:id="@+id/passwordSEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="password"
-            android:ems="10"
-            android:inputType="textPassword" />
+                app:layout_constraintBottom_toTopOf="@+id/signSUpButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstNameLinearLayout">
 
+                <TextView
+                    android:id="@+id/emailValidation"
+                    style="@style/verificationStyle"
+                    android:visibility="invisible" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/passwordValidation"
+                    style="@style/verificationStyle"
+                    android:visibility="invisible" />
 
-    <LinearLayout
-        android:id="@+id/verifyPasswordLinearLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLinearLayout">
+                <TextView
+                    android:id="@+id/passwordVerification"
+                    style="@style/verificationStyle"
+                    android:visibility="invisible" />
 
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/verifyPasswordEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Verify password"
-            android:inputType="textPassword" />
+            <Button
+                android:id="@+id/signSUpButton"
+                style="@style/buttonStyle"
+                android:text="@string/signUpButtonText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
 
+        </LinearLayout>
 
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/signSUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:text="@string/signUpButtonText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
-
-    <TextView
-        android:id="@+id/emailValidation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordValidation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
-
-    <TextView
-        android:id="@+id/passwordValidation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordVerification"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
-
-    <TextView
-        android:id="@+id/passwordVerification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/signSUpButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verifyPasswordLinearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
