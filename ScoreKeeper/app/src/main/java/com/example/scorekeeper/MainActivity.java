@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.OnLoginListener, WelcomeFragment.OnLogoutListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.OnLoginListener, WelcomeFragment.OnLogoutListener, WelcomeFragment.OnMyGamesListener {
     public  static prefConfig prefConfig;
     public static API_interface api_interface;
     @Override
@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
                 return;
             }
             if (prefConfig.readLoginStatus()){
-//                Intent intent = new Intent(this, TempActivity.class);
-//                startActivity(intent);
                 getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new WelcomeFragment()).commit();
             }
 
@@ -42,10 +40,8 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
 
     @Override
     public void performLogin(String email) {
-       // prefConfig.writeName(email);
-        Intent intent = new Intent(this, TempActivity.class);
-        startActivity(intent);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WelcomeFragment()).commit();
+        prefConfig.writeName(email);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WelcomeFragment()).commit();
 
     }
 
@@ -57,4 +53,9 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnL
 
     }
 
+    @Override
+    public void performMyGames() {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
 }

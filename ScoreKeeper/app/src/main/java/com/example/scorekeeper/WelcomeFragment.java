@@ -22,10 +22,15 @@ public class WelcomeFragment extends Fragment {
 
     private TextView TextView;
     private Button LogOut;
+    private  Button MyGames;
     OnLogoutListener logoutListener;
+    OnMyGamesListener myGamesListener;
 
     public interface OnLogoutListener{
         public void performLogout();
+    }
+    public interface OnMyGamesListener{
+        public void performMyGames();
     }
     public WelcomeFragment() {
         // Required empty public constructor
@@ -40,20 +45,17 @@ public class WelcomeFragment extends Fragment {
         TextView = view.findViewById(R.id.welcome_message);
         TextView.setText("Welcome " + MainActivity.prefConfig.readName());
         LogOut = view.findViewById(R.id.logout_button);
+        MyGames = view.findViewById(R.id.gameListButton);
         LogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logoutListener.performLogout();
             }
         });
-        Button MyGames = view.findViewById(R.id.gameListButton);
-        MyGames.setOnClickListener(new View.OnClickListener() {
+        MyGames.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getActivity(), MenuActivity.class);
-                startActivity(intent);
-                ((Activity)getActivity()).overridePendingTransition(0, 0);
-
+            public void onClick(View view){
+                myGamesListener.performMyGames();
             }
         });
 
@@ -66,5 +68,6 @@ public class WelcomeFragment extends Fragment {
         super.onAttach(context);
         Activity activity = (Activity) context;
         logoutListener = (OnLogoutListener) activity;
+        myGamesListener = (OnMyGamesListener)activity;
     }
 }

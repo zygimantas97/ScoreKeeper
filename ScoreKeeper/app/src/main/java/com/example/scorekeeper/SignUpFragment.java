@@ -1,6 +1,7 @@
 package com.example.scorekeeper;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -47,6 +49,7 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+
 
         Email = view.findViewById(R.id.emailSEditText);
         Name = view.findViewById(R.id.firstNameEditText);
@@ -107,6 +110,7 @@ public class SignUpFragment extends Fragment {
 
         else {
             EmailValidation.setText("Please provide a valid email");
+            EmailValidation.setVisibility(View.VISIBLE);
             return false;}
     }
 
@@ -126,6 +130,7 @@ public class SignUpFragment extends Fragment {
 
         else {
             PasswordValidation.setText("Please provide a valid password: at least 8 characters long, one capital letter and digit");
+            PasswordValidation.setVisibility(View.VISIBLE);
             return false;}
     }
 
@@ -137,6 +142,7 @@ public class SignUpFragment extends Fragment {
 
         else {
             PasswordVerification.setText("Passwords do not match");
+            PasswordVerification.setVisibility(View.VISIBLE);
             return false;}
     }
 
@@ -181,6 +187,9 @@ public class SignUpFragment extends Fragment {
         EmailValidation.setText("");
         PasswordVerification.setText("");
         PasswordValidation.setText("");
+        EmailValidation.setVisibility(View.INVISIBLE);
+        PasswordVerification.setVisibility(View.INVISIBLE);
+        PasswordValidation.setVisibility(View.INVISIBLE);
 
     }
 

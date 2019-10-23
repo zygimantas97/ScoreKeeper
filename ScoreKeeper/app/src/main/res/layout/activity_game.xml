@@ -8,91 +8,78 @@
 
     <TextView
         android:id="@+id/player1TextView"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="185dp"
+        style="@style/viewTextStyle"
         android:text="@string/defaultPlayer"
-        app:layout_constraintEnd_toStartOf="@+id/setScoreTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/player2TextView"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="185dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/defaultPlayer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/setScoreTextView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/setScoreTextView"
-        android:layout_width="50dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/defaultScore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/increaseResult1Button1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameScoreTextView" />
 
     <TextView
-        android:id="@+id/gameScoreTextView"
-        android:layout_width="50dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/defaultScore"
+        android:id="@+id/player2TextView"
+        style="@style/viewTextStyle"
+        android:text="@string/defaultPlayer"
+        app:layout_constraintBottom_toTopOf="@+id/increaseResult1Button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/gameScoreTextView" />
+
+    <TextView
+        android:id="@+id/setScoreTextView"
+        style="@style/viewTextStyle"
+        android:text="@string/defaultScore"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/player2TextView"
+        app:layout_constraintStart_toEndOf="@+id/player1TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/gameScoreTextView"
+        style="@style/scoreResultStyle"
+        android:text="@string/defaultScore"
+        app:layout_constraintBottom_toTopOf="@+id/setScoreTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/increaseResult1Button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
+        style="@style/buttonStyle"
         android:onClick="onIncreaseResult1Button1Click"
         android:text="@string/increaseResult1ButtonText"
+        app:layout_constraintBottom_toTopOf="@+id/increaseResult2Button1"
+        app:layout_constraintEnd_toStartOf="@+id/increaseResult1Button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player1TextView" />
 
     <Button
         android:id="@+id/increaseResult1Button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
+        style="@style/buttonStyle"
         android:onClick="onIncreaseResult1Button2Click"
         android:text="@string/increaseResult1ButtonText"
+        app:layout_constraintBottom_toTopOf="@+id/increaseResult2Button2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/increaseResult1Button1"
         app:layout_constraintTop_toBottomOf="@+id/player2TextView" />
 
     <Button
         android:id="@+id/increaseResult2Button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        style="@style/buttonStyle"
         android:onClick="onIncreaseResult2Button1Click"
         android:text="@string/increaseResult2ButtonText"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/increaseResult2Button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/increaseResult1Button1" />
 
     <Button
         android:id="@+id/increaseResult2Button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
+        style="@style/buttonStyle"
         android:onClick="onIncreaseResult2Button2Click"
         android:text="@string/increaseResult2ButtonText"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/increaseResult2Button1"
         app:layout_constraintTop_toBottomOf="@+id/increaseResult1Button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

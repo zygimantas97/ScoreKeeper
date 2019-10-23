@@ -9,36 +9,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="200dp">
-    <TextView
-        android:id="@+id/welcome_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_gravity="center"
-        android:text="@string/hello_blank_fragment"
-        />
+        android:orientation="vertical">
 
 
-
+        <TextView
+            android:id="@+id/welcome_message"
+            style="@style/viewTextStyle"
+            android:text="@string/hello_blank_fragment" />
 
         <Button
-            android:id="@+id/logout_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/log_out"/>
+        android:id="@+id/logout_button"
+        style="@style/buttonStyle"
+        android:text="@string/log_out" />
 
-        <Button
-            android:id="@+id/gameListButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/gameListButtonText" />
+    <Button
+        android:id="@+id/gameListButton"
+        style="@style/buttonStyle"
+        android:text="@string/gameListButtonText" />
 
     </LinearLayout>
-
-
-
 </FrameLayout>

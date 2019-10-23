@@ -36,6 +36,13 @@ public class MenuActivity extends AppCompatActivity {
             newButton.setId(i+1);
             newButton.setTag(games[i]);
             newButton.setOnClickListener(buttonClick);
+            newButton.setBackground(getDrawable(R.drawable.button_style));
+            newButton.setPadding(15,15,15,15);
+            newButton.setTextSize(20);
+            newButton.setTextColor(getResources().getColor(R.color.yellow));
+
+            newButton.setBottom(6);
+            newButton.setTop(15);
             LinearLayout layoutOfButtons = findViewById(R.id.gameListLayout);
             ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
             layoutOfButtons.addView(newButton, layoutParams);
@@ -44,6 +51,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
+
 
     private Game[] getGames(){
         Game[] generatedGames = new Game[countOfGames];

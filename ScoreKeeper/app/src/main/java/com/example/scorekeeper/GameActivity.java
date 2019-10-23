@@ -18,9 +18,9 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         game = (Game)intent.getSerializableExtra("gameObject");
         TextView player1TextView = findViewById(R.id.player1TextView);
-        player1TextView.setText(game.getPlayer1ID());
+        player1TextView.setText(String.valueOf(game.getPlayer1ID()));
         TextView player2TextView = findViewById(R.id.player2TextView);
-        player2TextView.setText(game.getPlayer2ID());
+        player2TextView.setText(String.valueOf(game.getPlayer2ID()));
 
     }
 
