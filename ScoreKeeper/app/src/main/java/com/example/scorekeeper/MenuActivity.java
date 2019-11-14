@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import java.sql.*;
 
 public class MenuActivity extends AppCompatActivity {
-    int countOfGames = 5;
+    int countOfGames = 3;
     Game[] games;
     View.OnClickListener buttonClick = new View.OnClickListener() {
         @Override
@@ -32,7 +33,9 @@ public class MenuActivity extends AppCompatActivity {
 
         for(int i = 0; i < games.length; i++){
             final Button newButton = new Button(this);
-            newButton.setText("Button" + (i+1));
+
+            String buttonString = games[i].getDate() + " " + games[i].getTime() + " " + games[i].getTableNumber();
+            newButton.setText(buttonString);
             newButton.setId(i+1);
             newButton.setTag(games[i]);
             newButton.setOnClickListener(buttonClick);
@@ -54,10 +57,11 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private Game[] getGames(){
-        Game[] generatedGames = new Game[countOfGames];
-        for(int i = 0; i < countOfGames; i++){
-            generatedGames[i] = new Game(i);
-        }
+        Game[] generatedGames = new Game[3];
+        generatedGames[0] = new Game(1, 4, 1, 2, 3, 2, "2019-12-12", "12:00", 1);
+        generatedGames[1] = new Game(2, 4, 1, 3, 3, 2, "2019-12-12", "12:30", 1);
+        generatedGames[2] = new Game(3, 4, 2, 3, 3, 2, "2019-12-12", "13:00", 1);
+
         return generatedGames;
     }
 }
