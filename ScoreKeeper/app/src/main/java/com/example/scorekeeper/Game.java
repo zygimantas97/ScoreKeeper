@@ -124,6 +124,7 @@ public class Game implements Serializable{
     public String getDate() {return date;}
     public String getTime() {return time;}
     public int getTableNumber(){return tableNumber;}
+    public int getSetNumber() {return setNumber;}
 
 
     // funkcija neimplementuota
@@ -134,7 +135,20 @@ public class Game implements Serializable{
         else {
             player2Points[setNumber] += pts;
         }
-
+        if (isItEndOfSet()){
+            if(player1Points[setNumber] > player2Points[setNumber]){
+                switchSet(1);
+            }
+            else{
+                switchSet(2);
+            }
+            if(isITEndOfGame()){
+                isFinished = true;
+            }
+        }
+        else{
+            switchServe();
+        }
 
     }
 
@@ -163,6 +177,13 @@ public class Game implements Serializable{
         return false;
     }
 
+    // Metodas tikrina ar dar ne zaidimo pabaiga
+    private boolean isITEndOfGame(){
+        if(Math.max(player1WonSets, player2WonSets) >= (bestOf / 2) + 1)
+            return true;
+        return false;
+    }
+
     // Metodas pakeicia paduodanti zaideja
     private void switchPlayer(){
         player1IsOnServe = !player1IsOnServe;
@@ -177,7 +198,7 @@ public class Game implements Serializable{
             player2WonSets++;
         }
         setNumber++;
-        if((setNumber % 2) == 0){
+        if((setNumber % 2) == 1){
             player1IsOnServe = !player1StartedGame;
         }
         else {
@@ -202,7 +223,7 @@ public class Game implements Serializable{
                 player1StartedGame = false;
             }
             serveNumber = 1;
-            setNumber = 1;
+
         }
     }
 }
