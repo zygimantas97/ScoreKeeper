@@ -10,8 +10,8 @@ import java.util.Timer;
 public class Game implements Serializable{
     private int gameID;
     private int refereeID;
-    private int player1ID;
-    private int player2ID;
+    private String player1FullName;
+    private String player2FullName;
     private int bestOf;
     private int player1WonSets;
     private int player2WonSets;
@@ -31,8 +31,8 @@ public class Game implements Serializable{
     public Game(){
         gameID = 1;
         refereeID = 2;
-        player1ID = 3;
-        player2ID = 4;
+        player1FullName = "Player 1";
+        player2FullName = "Player 2";
         bestOf = 3;
         player1WonSets = 0;
         player2WonSets = 0;
@@ -44,12 +44,16 @@ public class Game implements Serializable{
         }
     }
 
-    public Game(int game_id, int referee_id, int player1_id, int player2_id, int best_of, int count_of_serves, String game_date, String game_time, int table_number){
+    public Game(int id){
+        super();
+
+    }
+    public Game(int game_id, int referee_id, String player1_name, String player2_name, int best_of, int count_of_serves, String game_date, String game_time, int table_number){
 
         gameID = game_id;
         refereeID = referee_id;
-        player1ID = player1_id;
-        player2ID = player2_id;
+        player1FullName = player1_name;
+        player2FullName = player2_name;
         bestOf = best_of;
         player1WonSets = 0;
         player2WonSets = 0;
@@ -73,32 +77,18 @@ public class Game implements Serializable{
 
     }
 
-    public Game(int id){
-        gameID = 1;
-        refereeID = 1;
-        player1ID = id;
-        player2ID = id;
-        bestOf = 3;
-        player1WonSets = 0;
-        player2WonSets = 0;
-        player1Points = new int[bestOf];
-        player2Points = new int[bestOf];
-        for(int i = 0; i < bestOf; i++){
-            player1Points[i] = 0;
-            player2Points[i] = 0;
-        }
-    }
+
     public int getGameID(){
         return gameID;
     }
     public int getRefereeID(){
         return refereeID;
     }
-    public int getPlayer1ID(){
-        return player1ID;
+    public String getPlayer1FullName(){
+        return player1FullName;
     }
-    public int getPlayer2ID(){
-        return player2ID;
+    public String getPlayer2FullName(){
+        return player2FullName;
     }
     public int getBestOf(){
         return bestOf;

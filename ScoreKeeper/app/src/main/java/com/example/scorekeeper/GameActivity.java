@@ -20,9 +20,9 @@ public class GameActivity extends AppCompatActivity {
         game = (Game)intent.getSerializableExtra("gameObject");
 
         TextView player1TextView = findViewById(R.id.player1TextView);
-        player1TextView.setText(String.valueOf(game.getPlayer1ID()));
+        player1TextView.setText(game.getPlayer1FullName());
         TextView player2TextView = findViewById(R.id.player2TextView);
-        player2TextView.setText(String.valueOf(game.getPlayer2ID()));
+        player2TextView.setText(game.getPlayer2FullName());
 
     }
 
@@ -65,20 +65,23 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void updateState(){
-        if(game.getPlayer1IsOnServe()){
-            TextView player1TextView = findViewById(R.id.player1TextView);
-            player1TextView.setBackgroundColor(0xFFFF0000);
-
-            TextView player2TextView = findViewById(R.id.player2TextView);
+        TextView player1TextView = findViewById(R.id.player1TextView);
+        TextView player2TextView = findViewById(R.id.player2TextView);
+        if(game.getIsFinished()){
+            player1TextView.setBackgroundColor(0xFF000000);
             player2TextView.setBackgroundColor(0xFF000000);
         }
-        else {
-            TextView player1TextView = findViewById(R.id.player1TextView);
-            player1TextView.setBackgroundColor(0xFF000000);
-
-            TextView player2TextView = findViewById(R.id.player2TextView);
-            player2TextView.setBackgroundColor(0xFFFF0000);
+        else{
+            if(game.getPlayer1IsOnServe()){
+                player1TextView.setBackgroundColor(0xFFFF0000);
+                player2TextView.setBackgroundColor(0xFF000000);
+            }
+            else {
+                player1TextView.setBackgroundColor(0xFF000000);
+                player2TextView.setBackgroundColor(0xFFFF0000);
+            }
         }
+
         TextView gameScoreTextView = findViewById(R.id.gameScoreTextView);
         TextView setScoreTextView = findViewById(R.id.setScoreTextView);
 

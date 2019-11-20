@@ -34,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
         for(int i = 0; i < games.length; i++){
             final Button newButton = new Button(this);
 
-            String buttonString = games[i].getDate() + " " + games[i].getTime() + " " + games[i].getTableNumber();
+            String buttonString = games[i].getDate() + " " + games[i].getTime() + " " + games[i].getPlayer1FullName() + " VS " + games[i].getPlayer2FullName();
             newButton.setText(buttonString);
             newButton.setId(i+1);
             newButton.setTag(games[i]);
@@ -58,9 +58,9 @@ public class MenuActivity extends AppCompatActivity {
 
     private Game[] getGames(){
         Game[] generatedGames = new Game[3];
-        generatedGames[0] = new Game(1, 4, 1, 2, 3, 2, "2019-12-12", "12:00", 1);
-        generatedGames[1] = new Game(2, 4, 1, 3, 3, 2, "2019-12-12", "12:30", 1);
-        generatedGames[2] = new Game(3, 4, 2, 3, 3, 2, "2019-12-12", "13:00", 1);
+        generatedGames[0] = new Game(1, 4, "Jonas Jonaitis", "Petras Petraitis", 3, 2, "2019-12-12", "12:00", 1);
+        generatedGames[1] = new Game(2, 4, "Jonas Jonaitis", "Simas Simaitis", 3, 2, "2019-12-12", "12:30", 1);
+        generatedGames[2] = new Game(3, 4, "Petras Petraitis", "Simas Simaitis", 3, 2, "2019-12-12", "13:00", 1);
 
         return generatedGames;
     }
