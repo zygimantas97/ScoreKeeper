@@ -12,6 +12,7 @@
     <string name="pref_file">com.abc.preference_file</string>
     <string name="pref_login_status">com.abs.preference_login_status</string>
     <string name="pref_user_name">com.abs.preference_user_name</string>
+    <string name="pref_user_id">com.abs.preference_user.id</string>
     <string name="gameListButtonText">My games</string>
     <string name="increaseResult1ButtonText">Start</string>
     <string name="increaseResult2ButtonText">+2</string>

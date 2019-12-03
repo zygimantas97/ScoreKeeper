@@ -80,7 +80,10 @@ public class LoginFragment extends Fragment {
             public void onResponse(Call<user> call, Response<user> response) {
                 if (response.body().getResponse().equals("ok")){
                     MainActivity.prefConfig.writeLoginStatus(true);
+                    String id = String.valueOf(response.body().getId());
+                    MainActivity.prefConfig.writeID(id);
                     loginListener.performLogin(response.body().getEmail());
+                    MainActivity.prefConfig.displayMessage(MainActivity.prefConfig.readID());
 
                 }
                 else if (response.body().getResponse().equals("error")){
@@ -90,7 +93,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onFailure(Call<user> call, Throwable t) {
-                MainActivity.prefConfig.displayMessage("No response");
+                MainActivity.prefConfig.displayMessage(t.getMessage());
             }
         });
 

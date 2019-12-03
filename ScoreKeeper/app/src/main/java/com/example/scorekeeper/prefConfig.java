@@ -35,6 +35,16 @@ public class prefConfig {
         return sharedPreferences.getString(context.getString(R.string.pref_user_name), "User");
     }
 
+    public void writeID(String id){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_id), id);
+        editor.commit();
+    }
+    public String readID(){
+        return sharedPreferences.getString(context.getString(R.string.pref_user_id), "ID");
+    }
+
+
     public  void displayMessage(String message){
         Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
     }
