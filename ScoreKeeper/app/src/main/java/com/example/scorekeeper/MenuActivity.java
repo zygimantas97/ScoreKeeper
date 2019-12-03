@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.concurrent.*;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,40 +45,27 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+
         games = getGames();
 
-        for(int i = 0; i < games.length; i++){
-            final Button newButton = new Button(this);
-
-            String buttonString = games[i].getDate() + " " + games[i].getTime() + " " + games[i].getPlayer1FullName() + " VS " + games[i].getPlayer2FullName();
-            newButton.setText(buttonString);
-            newButton.setId(i+1);
-            newButton.setTag(games[i]);
-            newButton.setOnClickListener(buttonClick);
-            newButton.setBackground(getDrawable(R.drawable.button_style));
-            newButton.setPadding(15,15,15,15);
-            newButton.setTextSize(20);
-            newButton.setTextColor(getResources().getColor(R.color.yellow));
-
-            newButton.setBottom(6);
-            newButton.setTop(15);
-            LinearLayout layoutOfButtons = findViewById(R.id.gameListLayout);
-            ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
-            layoutOfButtons.addView(newButton, layoutParams);
-
-        }
 
 
     }
 
+    private Button createButton(){
+        final Button newButton = new Button(this);
+        return newButton;
+    }
 
     private Game[] getGames(){
 
-        final List<Game> games = new ArrayList<>();
-        final Game[] game;
+        final List<Game> gamesList = new ArrayList<>();
+
         String id_string = MainActivity.prefConfig.readID();
+        MainActivity.prefConfig.displayMessage(id_string);
 
         int id = Integer.parseInt(id_string);
+
 
         Call<GamesContainer> call = MainActivity.api_interface.getGames(id);
         call.enqueue(new Callback<GamesContainer>() {
@@ -85,7 +73,32 @@ public class MenuActivity extends AppCompatActivity {
             public void onResponse(Call<GamesContainer> call, Response<GamesContainer> response) {
                 if (response.body().getResponse().equals("ok")){
                    MainActivity.prefConfig.displayMessage("All good");
-                  List<Game> game = response.body().getGames();
+                   List<Game> games_data = new ArrayList<>();
+                  for(Game single_game : response.body().getGames()) {
+                      games_data.add(single_game);
+                  }
+
+
+                    for(int i = 0; i < games_data.size(); i++){
+                        Button newButton = createButton();
+
+                        String buttonString = games_data.get(i).getDate() + " " + games_data.get(i).getTime() + " " + games_data.get(i).getPlayer1FullName() + " VS " + games_data.get(i).getPlayer2FullName();
+                        newButton.setText(buttonString);
+                        newButton.setId(i+1);
+                        newButton.setTag(games_data.get(i));
+                        newButton.setOnClickListener(buttonClick);
+                        newButton.setBackground(getDrawable(R.drawable.button_style));
+                        newButton.setPadding(15,15,15,15);
+                        newButton.setTextSize(20);
+                        newButton.setTextColor(getResources().getColor(R.color.yellow));
+
+                        newButton.setBottom(6);
+                        newButton.setTop(15);
+                        LinearLayout layoutOfButtons = findViewById(R.id.gameListLayout);
+                        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
+                        layoutOfButtons.addView(newButton, layoutParams);
+
+                    }
 
                 }
                 else if (response.body().getResponse().equals("failed")){
@@ -101,11 +114,11 @@ public class MenuActivity extends AppCompatActivity {
         });
 
 
-        Game[] games_data = new Game[games.size()];
+        Game[] games_data = new Game[gamesList.size()];
 
 
-        for (int i = 0; i< games.size(); i++){
-            games_data[i] = games.get(i);
+        for(int i=0; i < games_data.length; i++){
+            games_data[i] = gamesList.get(i);
         }
 
 
@@ -114,6 +127,9 @@ public class MenuActivity extends AppCompatActivity {
         generatedGames[1] = new Game(2, 4, "Jonas Jonaitis", "Simas Simaitis", 3, 2, "2019-12-12", "12:30", 1);
         generatedGames[2] = new Game(3, 4, "Petras Petraitis", "Simas Simaitis", 3, 2, "2019-12-12", "13:00", 1);
 
+        Integer intVal = new Integer(games_data.length);
+        String stringVal = intVal.toString();
+        MainActivity.prefConfig.displayMessage(stringVal);
         return games_data;
     }
 }

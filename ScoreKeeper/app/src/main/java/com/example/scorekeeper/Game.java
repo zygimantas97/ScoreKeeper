@@ -5,14 +5,26 @@ import java.math.*;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.Timer;
+import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("serial")
 public class Game implements Serializable{
+    @SerializedName("id")
     private int gameID;
+
+    @SerializedName("referee_id")
     private int refereeID;
+
+    @SerializedName("player1")
     private String player1FullName;
+
+    @SerializedName("player2")
     private String player2FullName;
+
+    @SerializedName("best_of")
     private int bestOf;
+
+
     private int player1WonSets;
     private int player2WonSets;
     private int[] player1Points;
@@ -23,9 +35,17 @@ public class Game implements Serializable{
     private boolean player1StartedGame;
     private int serveNumber;
     private int setNumber;
+
+    @SerializedName("count_of_serves")
     private int countOfServes;
+
+    @SerializedName("date")
     private String date;
+
+    @SerializedName("time")
     private String time;
+
+    @SerializedName("table_number")
     private int tableNumber;
 
     public Game(){
