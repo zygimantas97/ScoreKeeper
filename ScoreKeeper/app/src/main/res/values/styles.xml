@@ -1,11 +1,78 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:editTextColor">@color/colorPrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="editTextStyle">@style/editTextStyle</item>
+        <item name="android:buttonStyle">@style/buttonStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/viewTextStyle</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:gravity">center</item>
+
+
     </style>
+    <style name="buttonStyle" parent="@android:style/Widget.Button.Small">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+
+    <style name="editTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textColorHint">@color/yellow</item>
+        <item name="android:editTextColor">@color/yellow</item>
+        <item name="android:backgroundTint">@color/yellow</item>
+        <item name="android:ems">10</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+
+    <style name="viewTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">20sp</item>
+
+ <item name="android:background">@drawable/textview_style</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+
+    <style name="scoreResultStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="noAccountTextViewStyle" parent="viewTextStyle">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="SignUpButtonStyle" parent="buttonStyle">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="verificationStyle" parent="viewTextStyle">
+        <item name="android:layout_width">@dimen/verification_message_margin</item>
+        <item name="android:textSize">20sp</item>
+
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
 
 </resources>
