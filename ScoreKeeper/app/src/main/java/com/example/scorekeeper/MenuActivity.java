@@ -62,7 +62,6 @@ public class MenuActivity extends AppCompatActivity {
         final List<Game> gamesList = new ArrayList<>();
 
         String id_string = MainActivity.prefConfig.readID();
-        MainActivity.prefConfig.displayMessage(id_string);
 
         int id = Integer.parseInt(id_string);
 
