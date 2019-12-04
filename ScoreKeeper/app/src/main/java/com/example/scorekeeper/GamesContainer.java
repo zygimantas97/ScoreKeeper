@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.math.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -26,14 +27,13 @@ public class GamesContainer {
     private String response;
 
     @SerializedName("games")
-    private List<Game> games;
+    private List<Game> games = new ArrayList<>();
 
     public String getResponse() {
         return response;
     }
 
-    public List<Game>  getGames() {
-        return games;
+    public List<Game>  getGames() { return games;
     }
 
 }
