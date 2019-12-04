@@ -72,7 +72,6 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GamesContainer> call, Response<GamesContainer> response) {
                 if (response.body().getResponse().equals("ok")){
-                   MainActivity.prefConfig.displayMessage("All good");
                    List<Game> games_data = new ArrayList<>();
                   for(Game single_game : response.body().getGames()) {
                       games_data.add(single_game);
@@ -90,7 +89,7 @@ public class MenuActivity extends AppCompatActivity {
                         newButton.setBackground(getDrawable(R.drawable.button_style));
                         newButton.setPadding(15,15,15,15);
                         newButton.setTextSize(20);
-                        newButton.setTextColor(getResources().getColor(R.color.yellow));
+                        newButton.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
 
                         newButton.setBottom(6);
                         newButton.setTop(15);
@@ -102,7 +101,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 }
                 else if (response.body().getResponse().equals("failed")){
-                    MainActivity.prefConfig.displayMessage("Get Games Failed");
+                    MainActivity.prefConfig.displayMessage("No games for you found");
                 }
             }
 
