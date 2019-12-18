@@ -20,6 +20,7 @@ public interface API_interface {
 
     @GET("getrefereegames.php")
     Call<GamesContainer> getGames(@Query("id") int id);
+    //kazkas
 
 
 }
